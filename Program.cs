@@ -2,7 +2,7 @@
 using BoogleAdnan;
 
 Console.WriteLine("Reading file");
-string[] wordlist = File.ReadAllLines(@"C:\Git\BoogleAdnan\safedict_full.txt");
+string[] wordlist = File.ReadAllLines(Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"safedict_full.txt"));
 string letters = GetInput();
 char[,] input = new char[4, 4];
 int letterIndex = 0;
@@ -17,7 +17,7 @@ foreach (var word in wordlist)
 string GetInput()
 {
     Console.WriteLine("Please enter 16 letters");
-    var readLine = Console.ReadLine();
+    var readLine = Console.ReadLine().ToLower();
     if (readLine != null && readLine.Length != 16)
     {
         GetInput();
